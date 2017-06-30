@@ -33,7 +33,6 @@ function AboutCtrl($timeout, AboutService, $http, $mdToast) {
         }
     }
 
-
     vm.teste = function() {
         AboutService.cep(vm.cep)
             .then(function(params) {
