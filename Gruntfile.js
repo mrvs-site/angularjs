@@ -28,6 +28,16 @@ module.exports = function(grunt) {
     // Define the configuration for all the tasks
     grunt.initConfig({
 
+        pkg: grunt.file.readJSON('package.json'),
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            dist: {
+                src: ['app/**/*.js'],
+                dest: 'dist/js/app.js',
+            }
+        },
         // Project settings
         yeoman: appConfig,
 
@@ -482,4 +492,9 @@ module.exports = function(grunt) {
         'test',
         'build'
     ]);
+
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    // Default task(s).
+    grunt.registerTask('default', ['uglify']);
 };
