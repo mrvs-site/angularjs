@@ -28,14 +28,12 @@ module.exports = function(grunt) {
     // Define the configuration for all the tasks
     grunt.initConfig({
 
-        pkg: grunt.file.readJSON('package.json'),
-        uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        shell: {
+            'git-add-dist': {
+                command: 'git add '
             },
-            dist: {
-                src: ['app/**/*.js'],
-                dest: 'dist/js/app.js',
+            'git-commit-build': {
+                command: 'git commit -am"build"'
             }
         },
         // Project settings
@@ -439,20 +437,26 @@ module.exports = function(grunt) {
     });
 
 
-    grunt.registerTask('heroku', 'Compile then start a connect web server', function(target) {
-        if (target === 'dist') {
-            return grunt.task.run(['build', 'connect:dist:keepalive']);
-        }
-
-        grunt.task.run([
-            'clean:server',
-            'wiredep',
-            'concurrent:server',
-            'postcss:server',
-            'connect:livereload',
-            'watch'
-        ]);
-    });
+    grunt.registerTask('build', [
+        'clean:dist',
+        'jshint',
+        'test',
+        'coffee',
+        'compass:dist',
+        'useminPrepare',
+        'concat',
+        'imagemin',
+        'cssmin',
+        'htmlmin',
+        'copy',
+        'cdnify',
+        'ngmin',
+        'uglify',
+        'rev',
+        'usemin',
+        'shell:git-add-dist',
+        'shell:git-commit-build'
+    ]);
 
     grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
         grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
@@ -493,8 +497,9 @@ module.exports = function(grunt) {
         'build'
     ]);
 
-    grunt.loadNpmTasks('grunt-heroku-deploy');
-
+    //grunt.loadNpmTasks('grunt-heroku-deploy');
+    grunt.loadNpmTasks('grunt-shell');
     // Default task(s).
     // grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('heroku', ['build', 'shell:heroku']);
 };
