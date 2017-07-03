@@ -28,13 +28,12 @@ module.exports = function(grunt) {
     // Define the configuration for all the tasks
     grunt.initConfig({
 
-        shell: {
-            'git-add-dist': {
-                command: 'git add '
+        hdeploy: {
+            staging: {
+                remote: 'staging',
+                branch: 'master'
             },
-            'git-commit-build': {
-                command: 'git commit -am"build"'
-            }
+            production: {}
         },
         // Project settings
         yeoman: appConfig,
@@ -498,8 +497,9 @@ module.exports = function(grunt) {
     ]);
 
     //grunt.loadNpmTasks('grunt-heroku-deploy');
-    grunt.loadNpmTasks('grunt-shell');
+    // grunt.loadNpmTasks('grunt-shell');
     // Default task(s).
     // grunt.registerTask('default', ['uglify']);
-    grunt.registerTask('heroku', ['build', 'shell:heroku']);
+    // grunt.registerTask('heroku', ['build', 'shell:heroku']);
+    grunt.loadNpmTasks('grunt-heroku');
 };
