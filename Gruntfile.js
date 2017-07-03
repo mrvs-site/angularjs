@@ -493,8 +493,8 @@ module.exports = function(grunt) {
         'build'
     ]);
 
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-heroku-deploy');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify']);
+    // grunt.registerTask('default', ['uglify']);
 };

@@ -43,6 +43,7 @@
         "test": "karma start test\\karma.conf.js"
     },
     "dependencies": {
-        "grunt-cli": "1.2.0"
+        "grunt-cli": "1.2.0",
+        "grunt-heroku-deploy": "^0.1.1"
     }
 }
