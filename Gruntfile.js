@@ -9,6 +9,9 @@
 
 module.exports = function(grunt) {
 
+    if (process.env.NODE_ENV !== 'production') {
+        require('time-grunt')(grunt);
+    }
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
