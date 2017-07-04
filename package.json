@@ -40,8 +40,8 @@
         "node": ">=0.10.0"
     },
     "scripts": {
-        "postinstall": "grunt uglify",
-        "start": "grunt serve"
+        "postinstall": "bower install",
+        "start": "node server.js"
     },
     "dependencies": {
         "autoprefixer-core": "^5.2.1",
