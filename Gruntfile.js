@@ -35,6 +35,20 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        concat: {
+            dist: {
+                src: ['app/scripts/src/*.js', 'app/scripts/src/**/*.js'],
+                dest: 'app/js/app.js'
+            }
+        },
+        uglify: {
+            app: {
+                src: ['app/js/app.js'],
+                dest: 'app/js/app-min.js'
+            }
+        },
+
+
         // Project settings
         yeoman: appConfig,
 
@@ -491,5 +505,5 @@ module.exports = function(grunt) {
     ]);
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('default', ['concat', 'uglify']);
 };
