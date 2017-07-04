@@ -39,12 +39,13 @@
         "node": ">=0.10.0"
     },
     "scripts": {
-        "postinstall": "./node_modules/bower/bin/bower install",
+        "postinstall": "grunt uglify",
         "start": "node server.js",
         "test": "karma start test\\karma.conf.js"
     },
     "dependencies": {
         "grunt-cli": "1.2.0",
-        "grunt-heroku-deploy": "^0.1.1"
+        "grunt-heroku-deploy": "^0.1.1",
+        "grunt-contrib-uglify": "0.7.0"
     }
 }
