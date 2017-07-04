@@ -38,13 +38,13 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: ['**/*.js', '**/*.js'],
-                dest: 'app/js/app.js'
+                dest: 'dist/js/app.js'
             }
         },
         uglify: {
             app: {
-                src: ['app/js/app.js'],
-                dest: 'app/js/app-min.js'
+                src: ['app/scripts/**/*.js'],
+                dest: 'dist/js/app-min.js'
             }
         },
 
