@@ -1,4 +1,4 @@
-// Generated on 2017-06-23 using generator-angular 0.16.0
+// Generated on 2017-06-28 using generator-angular 0.16.0
 'use strict';
 
 // # Globbing
@@ -28,13 +28,6 @@ module.exports = function(grunt) {
     // Define the configuration for all the tasks
     grunt.initConfig({
 
-        hdeploy: {
-            staging: {
-                remote: 'staging',
-                branch: 'master'
-            },
-            production: {}
-        },
         // Project settings
         yeoman: appConfig,
 
@@ -347,7 +340,7 @@ module.exports = function(grunt) {
         ngtemplates: {
             dist: {
                 options: {
-                    module: 'angularjsApp',
+                    module: 'angularOneApp',
                     htmlmin: '<%= htmlmin.dist.options %>',
                     usemin: 'scripts/scripts.js'
                 },
@@ -436,26 +429,20 @@ module.exports = function(grunt) {
     });
 
 
-    grunt.registerTask('build', [
-        'clean:dist',
-        'jshint',
-        'test',
-        'coffee',
-        'compass:dist',
-        'useminPrepare',
-        'concat',
-        'imagemin',
-        'cssmin',
-        'htmlmin',
-        'copy',
-        'cdnify',
-        'ngmin',
-        'uglify',
-        'rev',
-        'usemin',
-        'shell:git-add-dist',
-        'shell:git-commit-build'
-    ]);
+    grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
+        if (target === 'dist') {
+            return grunt.task.run(['build', 'connect:dist:keepalive']);
+        }
+
+        grunt.task.run([
+            'clean:server',
+            'wiredep',
+            'concurrent:server',
+            'postcss:server',
+            'connect:livereload',
+            'watch'
+        ]);
+    });
 
     grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
         grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
@@ -495,11 +482,4 @@ module.exports = function(grunt) {
         'test',
         'build'
     ]);
-
-    //grunt.loadNpmTasks('grunt-heroku-deploy');
-    // grunt.loadNpmTasks('grunt-shell');
-    // Default task(s).
-    // grunt.registerTask('default', ['uglify']);
-    // grunt.registerTask('heroku', ['build', 'shell:heroku']);
-    grunt.loadNpmTasks('grunt-heroku');
 };
