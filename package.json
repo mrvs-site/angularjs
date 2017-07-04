@@ -41,7 +41,7 @@
     },
     "scripts": {
         "postinstall": "grunt uglify",
-        "start": "node server.js"
+        "start": "grunt serve"
     },
     "dependencies": {
         "autoprefixer-core": "^5.2.1",
