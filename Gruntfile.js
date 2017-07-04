@@ -505,5 +505,5 @@ module.exports = function(grunt) {
     ]);
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('serve', ['concat', 'uglify']);
+    grunt.registerTask('prod', ['concat', 'uglify']);
 };

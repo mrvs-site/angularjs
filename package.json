@@ -41,8 +41,7 @@
     },
     "scripts": {
         "postinstall": "grunt uglify",
-        "start": "node server.js",
-        "test": "karma start test\\karma.conf.js"
+        "start": "node server.js"
     },
     "dependencies": {
         "autoprefixer-core": "^5.2.1",
