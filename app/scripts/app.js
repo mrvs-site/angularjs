@@ -18,7 +18,10 @@ angular
         'ui.router',
         'ui.utils.masks',
         'ui.bootstrap',
-        'ngMaterial'
+        'ngMaterial',
+        'ui.grid',
+        'ui.grid.selection',
+        'ui.grid.grouping'
     ])
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -35,6 +38,12 @@ angular
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl',
                 controllerAs: 'about'
+            })
+            .state('contact', {
+                url: 'contact',
+                templateUrl: 'views/contact.html',
+                controller: 'ContactCtrl',
+                controllerAs: 'contact'
             });
 
 

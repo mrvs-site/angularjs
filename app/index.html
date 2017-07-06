@@ -13,6 +13,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -47,7 +48,7 @@
                     <ul class="nav navbar-nav">
                         <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
                         <li ui-sref-active="active"><a ui-sref="about">About</a></li>
-                        <li ui-sref-active=""><a ui-sref="">Contact</a></li>
+                        <li ui-sref-active="active"><a ui-sref="contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -78,7 +79,6 @@
         ga('send', 'pageview');
     </script>
 
-    <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -93,15 +93,18 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
     <!-- endbower -->
-    <!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <!-- build:js(.tmp,app) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/contact.js"></script>
     <script src="scripts/services/serviceAbout.js"></script>
     <script src="scripts/utils/angular-input-masks/angular-input-masks-standalone.js"></script>
+    <script src="scripts/utils/angular/angular.min.js"></script>
+    <script src="scripts/utils/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbuild -->
 </body>
 

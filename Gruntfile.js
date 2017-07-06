@@ -35,16 +35,45 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        concat: {
+        bower: {
+            install: {
+                options: {
+                    targetDir: '../component/bower_components',
+                    layout: 'byComponent',
+                    copy: true,
+                    cleanTargetDir: true,
+                    verbose: true,
+                }
+            },
+        },
+
+        cssmin: {
             dist: {
-                src: ['app/scripts/**/*.js', 'app/scripts/**/*.js'],
-                dest: 'dist/js/app.js'
+                src: ['app/styles/main.css', 'app/styles/estilo.css'],
+
+                dest: 'dist/styles/main.css'
+            }
+        },
+
+        concat: {
+            options: {
+                separator: ';'
+            },
+            dist: {
+                src: ['app/scripts/controllers/*.js',
+                    'app/scripts/service/*.js',
+                    'app/scripts/*.js'
+                ],
+                dest: 'dist/<%= pkg.name %>.js'
             }
         },
         uglify: {
             app: {
-                src: ['app/scripts/**/*.js'],
-                dest: 'dist/js/app-min.js'
+                src: ['app/scripts/controllers/*.js',
+                    'app/scripts/service/*.js',
+                    'app/scripts/*.js'
+                ],
+                dest: 'dist/<%= pkg.name %>.js'
             }
         },
 
@@ -504,6 +533,7 @@ module.exports = function(grunt) {
         'build'
     ]);
 
+    grunt.loadNpmTasks('grunt-bower-install-task');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('prod', ['concat', 'uglify']);
+    // grunt.registerTask('prod', ['cssmin']);
 };

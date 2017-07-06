@@ -3,3 +3,9 @@ md-toast .md-toast-content {
     background-color: red;
     color: rgb(250, 250, 250);
 }
+
+.gridStyle {
+    border: 1px solid rgb(212, 212, 212);
+    width: 400px;
+    height: 300px;
+}
