@@ -9,3 +9,8 @@ md-toast .md-toast-content {
     width: 400px;
     height: 300px;
 }
+
+#form-cep {
+    padding-top: 46px;
+    padding-left: 15px;
+}

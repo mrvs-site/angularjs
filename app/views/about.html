@@ -1,20 +1,12 @@
 <div uib-alert ng-repeat="alert in about.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="about.closeAlert($index)">{{alert.msg}}</div>
-<p>
-    This is the about view.</p>
-
-
-
-<ul ng-repeat="item in about.awesomeThings">
-    <li>{{item}}</li>
-</ul>
-
-
-<button class="btn btn-success" ng-disabled="!about.nome" ng-click="about.botao($event)">Teste</button>
 
 <div class="col-sm-3" ng-class="{'has-error': !about.cep}">
-    <label for="">CEP:</label>
-    <input type="text" ng-focus="about.closeAlert($index)" name="nome" class="form-control" ng-model="about.cep" name="" value="" ui-br-cep-mask>
+    <md-input-container>
+        <label>CEP</label>
+        <input type="text" ng-focus="about.closeAlert($index)" name="nome" ng-model="about.cep" name="" value="" ui-br-cep-mask>
+    </md-input-container>
 </div>
+<md-button class="md-raised md-primary" ng-click="about.teste()" ng-disabled="!about.cep">Buscar</md-button>
 
 
 
@@ -38,43 +30,38 @@
 </div>
 
 
-<buttom class="btn btn-primary" ng-click="about.teste()" ng-disabled="!about.cep">Lista</buttom>
+<!--
 
 <script type="text/ng-template" id="alert.html">
     <div ng-transclude></div>
-</script>
+</script>-->
 
 <!--<md-content layout-padding ng-cloak>-->
-<div flex-gt-xs>
-    <h4>Standard date-picker</h4>
+<!--<div flex-gt-xs>
     <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
-</div>
+</div>-->
 <!--</md-content>-->
 
+<br/>
 
+<div id="form-cep">
+    <md-input-container>
+        <label>Logradouro</label>
+        <input ng-model="about.logradouro">
+    </md-input-container>
 
-<md-input-container>
-    <label>Logradouro</label>
-    <input ng-model="about.logradouro">
-</md-input-container>
+    <md-input-container>
+        <label>Bairro</label>
+        <input ng-model="about.bairro">
+    </md-input-container>
 
-<md-input-container>
-    <label>Bairro</label>
-    <input ng-model="about.bairro">
-</md-input-container>
+    <md-input-container>
+        <label>Cidade</label>
+        <input ng-model="about.localidade">
+    </md-input-container>
 
-<md-input-container>
-    <label>Cidade</label>
-    <input ng-model="about.localidade">
-</md-input-container>
-
-<md-input-container>
-    <label>UF</label>
-    <input ng-model="about.uf">
-</md-input-container>
-
-
-
-
-
-<md-button class="md-raised md-primary" ng-click="about.showSimpleToast()">Alert</md-button>
+    <md-input-container>
+        <label>UF</label>
+        <input ng-model="about.uf">
+    </md-input-container>
+</div>

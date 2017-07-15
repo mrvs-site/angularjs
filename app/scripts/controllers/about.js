@@ -76,8 +76,8 @@ function AboutCtrl($timeout, AboutService, $http, $mdToast) {
     var last = {
         bottom: false,
         top: true,
-        left: false,
-        right: true
+        left: true,
+        right: false
     };
 
     vm.toastPosition = angular.extend({}, last);
