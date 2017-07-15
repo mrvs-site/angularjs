@@ -52,6 +52,13 @@ angular
             requireBase: false
         });
 
-        // $urlRouterProvider.otherwise("/");
+
+        $stateProvider
+            .state('404', {
+                url: '404',
+                templateUrl: '404.html',
+            });
+
+        // $urlRouterProvider.otherwise('404');
 
     });

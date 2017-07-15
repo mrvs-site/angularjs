@@ -16,9 +16,11 @@ function AboutCtrl($timeout, AboutService, $http, $mdToast) {
 
     var vm = this;
 
+    vm.load = false;
     vm.cep = '';
 
     function isErro(params) {
+        vm.load = false;
         if (params.erro) {
             vm.showSimpleToast();
             vm.logradouro = '';
@@ -34,6 +36,7 @@ function AboutCtrl($timeout, AboutService, $http, $mdToast) {
     }
 
     vm.teste = function() {
+        vm.load = true;
         AboutService.cep(vm.cep)
             .then(function(params) {
                 isErro(params);
