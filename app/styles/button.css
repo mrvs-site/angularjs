@@ -1,0 +1,179 @@
+.box,
+.boxinner {
+    box-sizing: border-box;
+    border: 4px solid #FFF;
+    text-align: left;
+}
+
+.box {
+    width: 80px;
+    height: 80px;
+    animation: spin 3s infinite linear;
+}
+
+.wavecontainer {
+    width: 80px;
+    position: absolute;
+    left: 100px;
+    top: 169px;
+}
+
+.boxinner {
+    width: 60px;
+    height: 60px;
+    margin: 6px auto;
+    animation: pulse 1.5s infinite linear;
+    animation-timing-function: ease;
+}
+
+.line1,
+.line2,
+.line3,
+.line4 {
+    margin-left: 10px;
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: #FFF;
+    animation: spin 1.5s infinite linear;
+    animation-timing-function: ease;
+}
+
+.line2 {
+    animation-delay: 0.1s;
+}
+
+.line3 {
+    animation-delay: 0.2s;
+}
+
+.line4 {
+    animation-delay: 0.3s;
+}
+
+.circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    box-sizing: border-box;
+    border: solid 10px rgba(255, 255, 255, 0.2);
+    border-top-color: #FFF;
+    animation: spin 1s infinite linear;
+}
+
+.wave {
+    margin-top: 53px;
+    float: left;
+    width: 18px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 2px solid #A41515;
+    margin-left: -2px;
+    animation: slide 0.6s infinite linear;
+}
+
+.wave:nth-child(2n+1) {
+    animation-delay: 0.3s;
+}
+
+.circleloader {
+    border-radius: 16px;
+    width: 80px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.bounce {
+    position: absolute;
+    border-radius: 16px;
+    margin: 4px;
+    width: 20px;
+    height: 12px;
+    background-color: #FFF;
+    animation: push 1s infinite linear;
+}
+
+.switchbox {
+    position: sticky;
+    float: right;
+    width: 80px;
+    height: 80px;
+    bottom: 470px;
+}
+
+.switchbox {
+    animation: spin 2s infinite linear;
+}
+
+.switch {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: #FFF;
+    border-radius: 20px;
+    animation: cross 2s infinite linear;
+}
+
+#switch2 {
+    animation-delay: -1s;
+}
+
+.bouncybox {
+    height: 100px;
+    width: 40px;
+    margin-left: 20px;
+}
+
+.bouncy {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #ecf0f1;
+    animation: bouncy 2s infinite ease-in-out;
+}
+
+@keyframes bouncy {
+    40% {
+        height: 40px;
+    }
+    50% {
+        transform: translate(0, 65px);
+        height: 34px;
+        border-radius: 20px;
+    }
+    65% {
+        height: 40px;
+    }
+}
+
+@keyframes push {
+    50% {
+        margin-left: 56px;
+    }
+}
+
+@keyframes slide {
+    50% {
+        margin-top: 25px;
+    }
+}
+
+@keyframes pulse {
+    50% {
+        border-width: 30px;
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cross {
+    50% {
+        margin-left: 60px;
+    }
+}

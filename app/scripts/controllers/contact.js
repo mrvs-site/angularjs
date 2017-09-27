@@ -14,7 +14,7 @@ angular.module('angularjsApp')
     .controller('ContactCtrl', ContactCtrl);
 
 
-function ContactCtrl(uiGridConstants, $timeout) {
+function ContactCtrl(uiGridConstants, $timeout, $filter, $translate, $translatePartialLoader) {
 
     var vm = this;
     vm.mySelectedRows = [];
@@ -59,8 +59,9 @@ function ContactCtrl(uiGridConstants, $timeout) {
         // rowTemplate: '<div style="background-color: yellow" ng-repeat="col in colContainer.renderedColumns track by col.colDef.name" ng-click="vm.teste()" class="ui-grid-cell" ui-grid-cell></div>',
         rowTemplate: ' <div ng-click="grid.appScope.contact.teste()" ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.uid" ui-grid-one-bind-id-grid="rowRenderIndex + \'-\' + col.uid + \'-cell\'" class="ui-grid-cell" ng-class="{ \'ui-grid-row-header-cell\': col.isRowHeader }" role="{{col.isRowHeader ? \'rowheader\' : \'gridcell\'}}" ui-grid-cell></div>',
         columnDefs: [
-            { field: 'name', displayName: 'Nome' },
-            { field: 'age', displayName: 'Idade' }
+            { field: 'name', displayName: $filter('translate')('NAME') },
+            { field: 'age', displayName: $filter('translate')('AGE') }
+            //	  {field: 'id', displayName: $translate('Team_id_Column')},
         ]
     };
 
@@ -90,6 +91,9 @@ function ContactCtrl(uiGridConstants, $timeout) {
             vm.idade = vm.gridOptions.data[0].age;
         }, 50);
     };
+
+    $translatePartialLoader.addPart('login');
+    $translate.refresh();
 
 
     vm.select();

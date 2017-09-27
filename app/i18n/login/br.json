@@ -1,0 +1,16 @@
+{
+    "PORTUGUESE": "Português",
+    "ENGLISH": "Inglês",
+    "USER": "Usuário",
+    "PASSWORD": "Senha",
+    "LOGIN": "Entrar",
+    "LANGUAGE": "Idioma",
+    "HOME": "Início",
+    "ABOUT": "Sobre",
+    "CONTACT": "Contato",
+    "FIELD_REQUIRED": "Campo obrigatório",
+    "ERRO_LOGIN": "Usuário e senha estão incorretos!",
+    "LIST": "Lista",
+    "NAME": "Nome",
+    "AGE": "Idade"
+}

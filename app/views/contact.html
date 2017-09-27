@@ -1,6 +1,6 @@
 <div class="gridContainer">
 
-    Lista
+    {{ 'LIST' | translate }}
 
     <div class="gridStyle" ui-grid="contact.gridOptions" ui-grid-selection></div>
 
@@ -10,12 +10,12 @@
 
 
     <md-input-container>
-        <label>Nome</label>
+        <label>{{ 'NAME' | translate }}</label>
         <input ng-model="contact.nome">
     </md-input-container>
 
     <md-input-container>
-        <label>Idade</label>
+        <label>{{ 'AGE' | translate }}</label>
         <input ng-model="contact.idade">
     </md-input-container>
 

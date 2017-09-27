@@ -1,0 +1,38 @@
+<div class="col-md-6 col-md-offset-3">
+
+    <h2>{{ "LOGIN" | translate}}</h2>
+    <form name="form" ng-submit="form.$valid && lg.login()" novalidate>
+        <div class="form-group" ng-class="{ 'has-error': form.$submitted && form.username.$invalid }">
+            <label for="username">{{ "USER" | translate }}</label>
+            <input type="text" name="username" class="form-control" ng-model="lg.username" required />
+            <div ng-messages="form.$submitted && form.username.$error" class="validacao-msg">
+                <div ng-message="required">{{ 'FIELD_REQUIRED' | translate }}</div>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.$submitted && form.password.$invalid }">
+            <label for="password">{{ 'PASSWORD' | translate }}</label>
+            <input type="password" name="password" class="form-control" ng-model="lg.password" required />
+            <div ng-messages="form.$submitted && form.password.$error" class="validacao-msg">
+                <div ng-message="required">{{ 'FIELD_REQUIRED' | translate }}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button ng-disabled="lg.loading" class="btn btn-primary">{{ 'LOGIN' | translate}}</button>
+            <!-- <img ng-if="lg.loading" src="https://goo.gl/xob0vd" /> -->
+        </div>
+        <div ng-if="lg.error" class="alert alert-danger">{{ 'ERRO_LOGIN' | translate }}</div>
+    </form>
+
+    <div ng-show="lg.loading" class="wavecontainer">
+        <div class="wave" style="background-color: bisque;"></div>
+        <div class="wave" style="background-color: brown;"></div>
+        <div class="wave"></div>
+        <div class="wave" style="background-color: burlywood;"></div>
+        <div class="wave" style="background-color: yellow;"></div>
+    </div>
+
+    <div class="switchbox">
+        <div class="switch" style="background-color: brown;"></div>
+        <div class="switch" style="background-color: yellow;" id="switch2"></div>
+    </div>
+</div>
