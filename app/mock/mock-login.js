@@ -30,7 +30,9 @@ function BackEndMock($httpBackend) {
         }
     });
 
-    $httpBackend.whenGET().passThrough();
+    // $httpBackend.whenGET(/.*/).passThrough();
+    // $httpBackend.whenGET(/^\w+.*/).passThrough();
+    $httpBackend.whenGET( /*://*/ ).passThrough();
 
 
 }

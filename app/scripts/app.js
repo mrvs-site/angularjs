@@ -27,8 +27,10 @@ angular
         'pascalprecht.translate'
 
     ])
-    .config(function($qProvider, $stateProvider, $urlRouterProvider, $locationProvider, $translateProvider, $translatePartialLoaderProvider) {
+    .config(function($qProvider, $stateProvider, $urlRouterProvider, $locationProvider, $translateProvider, $translatePartialLoaderProvider, $httpProvider) {
 
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
         // Dicionário em arquivo
         // $translatePartialLoaderProvider.addPart('home');
