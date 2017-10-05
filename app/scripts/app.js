@@ -29,8 +29,17 @@ angular
     ])
     .config(function($qProvider, $stateProvider, $urlRouterProvider, $locationProvider, $translateProvider, $translatePartialLoaderProvider, $httpProvider) {
 
-        $httpProvider.defaults.useXDomain = true;
-        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+        // $httpProvider.interceptors.push('Interceptor');
+
+
+        // $httpProvider.defaults.headers.common = {};
+        // $httpProvider.defaults.headers.post = {};
+        // $httpProvider.defaults.headers.put = {};
+        // $httpProvider.defaults.headers.patch = {};
+        // $httpProvider.defaults.headers.get = {};
+        // $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
+        // $httpProvider.defaults.useXDomain = true;
+        // delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
         // Dicionário em arquivo
         // $translatePartialLoaderProvider.addPart('home');
@@ -112,8 +121,8 @@ angular
                 controller: 'AboutCtrl',
                 controllerAs: 'about',
                 data: {
-                    authorization: false,
-                    redirectTo: 'login'
+                    authorization: true,
+                    redirectTo: 'about'
                 }
             })
             .state('contact', {

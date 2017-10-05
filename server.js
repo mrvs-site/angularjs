@@ -1,24 +1,39 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
+var cors_proxy = require('cors-anywhere');
 
-app.all('/*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH,OPTIONS");
-    res.header("Pragma", "no-cache");
-    res.header("Cache-Control", "no-cache");
-    return next();
+cors_proxy.createServer({
+    originWhitelist: [], // Allow all origins 
+    requireHeader: ['origin', 'x-requested-with'],
+    removeHeaders: ['cookie', 'cookie2']
 });
 
-app.options('/*', function(req, res) {
-    // res.send(200);
-    res.header("Access-Control-Allow-Origin", "new[] { (string)context.Request.Headers['Origin'] }");
-    res.header("Access-Control-Allow-Headers", "new[] { 'Origin, X-Requested-With, Content-Type, Accept, Authorization' }");
-    res.header("Access-Control-Allow-Methods", "new[] { 'GET, POST, PUT, DELETE, OPTIONS' }");
-    res.header("Access-Control-Allow-Credentials", "new[] { 'true' }");
-});
+// app.all('*', function(req, res, next) {
+//     res.header('Access-Control-Allow-Origin', 'URLs to trust of allow');
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type');
+//     if ('OPTIONS' == req.method) {
+//         res.sendStatus(200);
+//     } else {
+//         next();
+//     }
+// });
 
+// app.all('/*', function(req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+//     next();
+// });
+
+// app.options('/*', function(req, res) {
+//     // res.send(200);
+//     res.header("Access-Control-Allow-Origin", "new[] { (string)context.Request.Headers['Origin'] }");
+//     res.header("Access-Control-Allow-Headers", "new[] { 'Origin, X-Requested-With, Content-Type, Accept, Authorization' }");
+//     res.header("Access-Control-Allow-Methods", "new[] { 'GET, POST, PUT, DELETE, OPTIONS' }");
+//     res.header("Access-Control-Allow-Credentials", "new[] { 'true' }");
+// });
 
 
 app.use(express.static(__dirname + '/app'));
